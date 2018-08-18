@@ -1,18 +1,19 @@
 var Generator = require('yeoman-generator');
+var fs = require('fs');
 
 module.exports = class extends Generator {
-    constructor(args, opts) {
-        super(args, opts);
-
-        // Next, add your custom code
-        this.option('babel'); // This method adds support for a `--babel` flag
+    initializing() {
+        this.composeWith(require.resolve('../base'), {
+            "properties": [{
+                "type": "input",
+                "name": "name",
+                "message": "Your app name"
+            }],
+            "files": [{
+                "name": "package.json",
+                "properties": ["name"]
+            }],
+            "caller": this
+        })
     }
-
-    method1() {
-    this.log('method 1 just ran');
-    }
-    
-    method2() {
-    this.log('method 2 just ran');
-    }
-  };
+}
