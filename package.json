@@ -1,0 +1,28 @@
+{
+  "name": "generator-niemi-bootstrapper",
+  "version": "1.0.0",
+  "description": "The standard bootstrapper for my infrastructure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "generators"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niemi-online/repo-bootstrapper.git"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "Ricky Niemi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niemi-online/repo-bootstrapper/issues"
+  },
+  "homepage": "https://github.com/niemi-online/repo-bootstrapper#readme",
+  "dependencies": {
+    "yeoman-generator": "^3.1.1"
+  }
+}
