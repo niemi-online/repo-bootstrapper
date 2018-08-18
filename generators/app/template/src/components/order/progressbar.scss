@@ -1,0 +1,10 @@
+@import '../../colors';
+@import '../../spacing';
+
+.progress {
+    height: $unit;
+    width: 100%;
+    border-radius: $unit / 2;
+
+    background-color: $color-ok;
+}
