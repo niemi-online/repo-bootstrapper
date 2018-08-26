@@ -1,0 +1,54 @@
+{
+  "name": "@<%= org %>/<%= name %>-commons",
+  "version": "1.0.0",
+  "src": "src",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "styles": "dist/index.scss",
+  "scripts": {
+    "build": "gulp build",
+    "precommit": "lint-staged",
+    "prepush": "yarn run test",
+    "pretest": "lint-staged",
+    "dev": "gulp watch",
+    "start": "yarn run server",
+    "test": "karma start --single-run --no-auto-watch",
+    "test:watch": "karma start",
+    "compile": "tsc --build tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "description": "",
+  "author": "INF",
+  "license": "MIT",
+  "dependencies": {
+    "@blueprintjs/core": "^3.4.0",
+    "@blueprintjs/icons": "^3.1.0",
+    "classnames": "^2.2.5",
+    "moment": "^2.19.1",
+    "numeral": "^2.0.4",
+    "object-hash": "^1.2.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "rxjs": "^6.1.0",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^10.9.2"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "tslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --write",
+      "stylelint  --syntax scss --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}

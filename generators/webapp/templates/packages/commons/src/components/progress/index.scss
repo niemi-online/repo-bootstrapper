@@ -1,0 +1,10 @@
+@import '~@blueprintjs/core/lib/scss/variables.scss';
+@import '../../spacing';
+
+.progress {
+    height: $unit;
+    width: 100%;
+    border-radius: $unit / 2;
+
+    background-color: $green5;
+}

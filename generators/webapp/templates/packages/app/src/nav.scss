@@ -1,0 +1,9 @@
+@import '@niemi/commons/dist/index.scss';
+
+$nav-height: 50px;
+
+.nav {
+    width: 100%;
+    height: $nav-height;
+    position: fixed;
+}
