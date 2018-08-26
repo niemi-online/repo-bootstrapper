@@ -1,5 +1,5 @@
 {
-  "name": "generator-niemi-bootstrapper",
+  "name": "@niemi-online/generator-reboot",
   "version": "1.0.0",
   "description": "The standard bootstrapper for my infrastructure",
   "main": "index.js",
