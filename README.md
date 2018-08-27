@@ -19,3 +19,8 @@ Created through `yo reboot:webapp`. This generates a base webapp project with:
 2. Lerna
 3. Webpack & gulp for dev cycle
 3. Dockerization for final deployment
+
+## Python
+Created through `yo reboot:python`. This generates a python project with:
+1. A trivial python setup
+2. Docker for local dev and deployment
