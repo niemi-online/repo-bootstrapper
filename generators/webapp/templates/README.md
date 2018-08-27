@@ -6,8 +6,8 @@ commands are available.
 
 ## Initial Setup
 <b>Note: these instructions are likely incomplete as I still need to run through full setup!</b>
-1. `yarn install` to get `node_modules` dependencies
-2. `yarn bootstrap` to link the repo
+1. `yarn bootstrap` to link the repo (TODO: maybe need a `yarn install`?)
+2. TODO: figure out why `yarn build` doesn't pick up package `yarn builds`!
 
 You may have some problem with `yarn` for subpackages where the new packages aren't published to any 
 nmp registry. This is a yarn bug where it doesn't respect linking properly. It is especially a problem
