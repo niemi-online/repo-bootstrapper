@@ -4,6 +4,15 @@
 This project relies heavily on `yarn` for all of your build needs. Make sure that you have `node` and `yarn` installed locally w/ `npm install -g yarn`, and then read through the `package.json` for what 
 commands are available.
 
+## Initial Setup
+<b>Note: these instructions are likely incomplete as I still need to run through full setup!</b>
+1. `yarn install` to get `node_modules` dependencies
+2. `yarn bootstrap` to link the repo
+
+You may have some problem with `yarn` for subpackages where the new packages aren't published to any 
+nmp registry. This is a yarn bug where it doesn't respect linking properly. It is especially a problem
+when adding new local dependencies to a package, usually solved by temporarily removing the local package from the dependencies of the `package.json` of the package you're modifying!
+
 ## Building
 Full project builds happen by running `yarn install` first and then `yarn build` at the top level of this repository. This will build all the way through to a docker container that you can deploy, tagging the image locally. You can deploy this with `docker run -d -p 8080:8080 <CONTAINER NAME HERE>` assuming you have docker up locally. Visiting `https://localhost:8080/static` should serve your page.
 

@@ -24,6 +24,9 @@ module.exports = class extends Generator {
                 "name": "packages/app/build/scripts/docker_env.sh",
                 "properties": ["registry", "name"]
             }, {
+                "name": "packages/app/src/containers/connectedorderbox.tsx",
+                "properties": ["registry", "name"]
+            }, {
                 "name": "packages/commons/package.json",
                 "properties": ["org", "name"]
             }],

@@ -29,22 +29,39 @@ module.exports = class extends Generator {
         }
     }
 
-    writing() {
-        const caller = this.caller;
-        var files = fs.readdirSync(caller.sourceRoot());
+    // Dir is the current directory we're traversing in the template set, the
+    // context is just the path following the template source root, for friendly
+    // specification by the template creator.
+    _copyDirRecursive(dir, context) {
+        const files = fs.readdirSync(dir);
 
-        for(const file of files) {
-            const isTemplateFile = this.templateToProps[file];
-            if(isTemplateFile) {
-                // TODO: actually restrict available properties
-                caller.fs.copyTpl(
-                    caller.templatePath(file),
-                    caller.destinationPath(file),
-                    this.configs
-                )
+        for (const file of files) {
+            const filePath = "" + dir + "/" + file;
+            const stat = fs.statSync(filePath);
+            if (stat.isDirectory()) {
+                this._copyDirRecursive(filePath, context + file + "/");
             } else {
-                caller.fs.copy(caller.templatePath(file), caller.destinationPath(file))
+                const relativePath = context + file;
+                console.log("Checking if template file: ", relativePath);
+                const isTemplateFile = this.templateToProps[relativePath];
+                if(isTemplateFile) {
+                    console.log("Filling template variables: ", relativePath);
+                    // TODO: actually restrict available properties
+                    this.caller.fs.copyTpl(
+                        this.caller.templatePath(relativePath),
+                        this.caller.destinationPath(relativePath),
+                        this.configs
+                    );
+                } else {
+                    this.caller.fs.copy(
+                        this.caller.templatePath(relativePath),
+                        this.caller.destinationPath(relativePath));
+                }
             }
         }
+    }
+
+    writing() {
+        this._copyDirRecursive(this.caller.sourceRoot(), "");
     }
 };

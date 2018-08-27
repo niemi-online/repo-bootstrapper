@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { OrderBox } from "@niemi/commons";
+import { OrderBox } from "@<%= org %>/<%= name %>-commons";
 import { increment, decrement } from "../actions";
 
 const mapStateToProps = state => ({
