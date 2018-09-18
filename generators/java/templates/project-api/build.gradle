@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'org.hidetake.swagger.generator' version '2.12.0'
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE'
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+
+    /*
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.14'
+    compile 'io.swagger:swagger-annotations:1.5.21'
+    compile 'io.swagger:swagger-jersey2-jaxrs:1.5.21'
+    compile 'io.swagger:swagger-core:1.5.21'
+    compile 'io.swagger:swagger-models:1.5.21'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.6'
+    */
+    
+    swaggerCodegen 'io.swagger:swagger-codegen-cli:2.3.1'
+    swaggerUI 'org.webjars:swagger-ui:2.2.10'
+}
+
+swaggerSources {
+    java {
+        inputFile = file('api.yml')
+        code {
+            language = 'spring'
+            configFile = file('config.json')
+            dependsOn validation
+        }
+        ui {
+            outputDir = file("$buildDir/docs/api")
+        }
+    }
+    typescript {
+        inputFile = file('api.yml')
+        code {
+            language = 'typescript-fetch'
+            configFile = file('typescript-config.json')
+            dependsOn validation
+        }
+    }
+}
+
+build.dependsOn swaggerSources.typescript.code
+
+compileJava.dependsOn swaggerSources.java.code
+sourceSets.main.java.srcDirs "${swaggerSources.java.code.outputDir}/src/main/java", "${swaggerSources.java.code.outputDir}/src/gen/java"
+sourceSets.main.resources.srcDirs "${swaggerSources.java.code.outputDir}/src/main/resources"

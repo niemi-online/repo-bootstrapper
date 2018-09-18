@@ -1,0 +1,8 @@
+{
+  "library": "spring-boot",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "modelPackage": "project.v1.model",
+  "apiPackage": "project.v1.api",
+  "invokerPackage": "project.v1"
+}

@@ -1,0 +1,29 @@
+allprojects {
+    buildscript {
+        repositories {
+            jcenter()
+            mavenCentral()
+        }
+    }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    ext {
+        registry = "registry.niemi.online"
+    }
+    
+    task tag {
+        new ByteArrayOutputStream().withStream { os ->
+            def result = exec {
+                executable = './scripts/get-tag.sh'
+                standardOutput = os
+            }
+            ext.value = os.toString()
+        }
+    }
+}
+
+apply plugin: 'idea'

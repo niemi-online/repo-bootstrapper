@@ -1,0 +1,17 @@
+{
+  "name": "@niemi/project-api",
+  "version": "1.0.0",
+  "description": "Project API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc --build tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "url": "^0.11.0"
+  }
+}
