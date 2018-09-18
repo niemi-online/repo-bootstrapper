@@ -24,3 +24,4 @@ Created through `yo reboot:webapp`. This generates a base webapp project with:
 Created through `yo reboot:python`. This generates a python project with:
 1. A trivial python setup
 2. Docker for local dev and deployment
+TODO: allow for different types of python projects
