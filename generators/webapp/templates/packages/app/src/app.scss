@@ -1,4 +1,4 @@
-@import "~@niemi/commons/dist/index.scss";
+@import "~@<%= org %>/<%= name %>-commons/dist/index.scss";
 @import "~@blueprintjs/core/src/blueprint.scss";
 
 .app {
