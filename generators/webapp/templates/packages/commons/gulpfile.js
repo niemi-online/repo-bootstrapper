@@ -19,7 +19,7 @@ gulp.task('styles', function() {
     return gulp.src(scssSource).pipe(gulp.dest(destination))
 })
  
-gulp.task('watch', ['scripts'], function() {
+gulp.task('watch', ['scripts', 'styles'], function() {
     gulp.watch(tsSource, ['scripts']);
     gulp.watch(scssSource, ['styles']);
 });
