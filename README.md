@@ -1,5 +1,5 @@
 # repo-bootstrapper
-The standard yoeman generator for applications in my stack!
+The standard yoeman generator for applications that I deploy to my personal infrastructure.
 
 ## Initial Setup
 1. `npm install -g yo`
